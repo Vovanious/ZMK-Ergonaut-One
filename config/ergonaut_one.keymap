@@ -1,6 +1,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/keys.h>
 
 #define DEF 0
 #define LWR 1
@@ -21,12 +22,21 @@
         };
     };
 
+    combos {
+        compatible = "zmk,combos";
+
+        TG_ENT {
+            bindings = <&kp ENTER>;
+            key-positions = <5 17>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
             bindings = <
-&mt LGUI RBKT    &kp Q  &kp W  &kp E        &kp R            &kp T          &kp Y        &kp U           &kp I        &kp O    &kp P     &kp LBKT
+&mt LGUI RBKT    &kp Q  &kp W  &kp E        &kp R            &lt 4 T        &kp Y        &kp U           &kp I        &kp O    &kp P     &kp LBKT
 &mt LCTRL GRAVE  &kp A  &kp S  &kp D        &kp F            &kp G          &kp H        &kp J           &kp K        &kp L    &kp SEMI  &mt RCTRL SQT
 &mt LALT MINUS   &kp Z  &kp X  &kp C        &kp V            &kp B          &kp N        &kp M           &kp COMMA    &kp DOT  &kp FSLH  &mt RALT BSLH
                                &lt RSE TAB  &mt LSHFT ENTER  &lt LWR SPACE  &lt LWR ESC  &mt RSHFT BSPC  &lt RSE DEL
@@ -57,6 +67,15 @@
 &bt BT_CLR   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_SEL 4  &bt BT_SEL 3  &bt BT_SEL 2  &bt BT_SEL 1  &bt BT_SEL 0  &bt BT_CLR
 &sys_reset   &none         &none         &none         &none         &none         &none         &none         &none         &none         &none         &sys_reset
                                          &trans        &none         &trans        &none         &trans        &trans
+            >;
+        };
+
+        layer_4 {
+            bindings = <
+&trans  &trans  &trans  &trans  &kp DEL  &kt BACKSPACE  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans   &trans         &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans   &trans         &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans   &trans         &trans  &trans  &trans
             >;
         };
     };
